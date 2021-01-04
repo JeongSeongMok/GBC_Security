@@ -25,7 +25,7 @@
 >![vue](./image/a1.png) <br/>- 이 취약점이 해당하는 버전 목록
 
 >### **취약점 분석**
->> #### 패치분석<br/> 다음 명령어를 통해 언패킹이 가능함.<br/>```> expand -F:* update.msu C:  > cd <br/> > expand -F:* update.cab C: ```
+>> #### 1. 패치분석<br/><br/> 다음 명령어를 통해 언패킹이 가능함.<br/>```> expand -F:* update.msu C:``` <br> ```> cd ```<br/>``` > expand -F:* update.cab C: ```
 
 
 
