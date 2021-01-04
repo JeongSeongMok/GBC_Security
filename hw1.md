@@ -58,6 +58,8 @@
 >> - **채널 2번**을 통해 **MS_T120**채널 객체를 참조하고 있는 **CODE1**에서 동작 중 해당 객체를 **FREE**한 이후에 **채널 31번**을 통해 **CODE2**에서 해당 객체를 사용하면 **UAF취약점**이 발현된다. 
 <br><img src="./image/a9.png" style="width:400px"><br><채널 바인딩 상태> 
 
+##### 출처 : http://igloosec.co.kr/BLOG_BlueKeep%20(CVE-2019-0708)?bbsCateId=1
+
 ### **POC**
 ### ***https://github.com/zerosum0x0/CVE-2019-0708/tree/master/poc***
 
