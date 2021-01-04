@@ -11,13 +11,21 @@
 
 #### **NAVER의 취약점 목록**
 ***https://cve.naver.com***
+<br/><br/>
+---
+***
+---
+<br/>
 
 ## **2. CVE-2019-0708** - BlueKeep
 >[RDP프로토콜](https://m.blog.naver.com/yoodh0713/221567375594)에서 발견된 취약점
 
 >해커가 따로 인증을 하지 않아도 서버에 코드 실행이 가능하다.
 
->![vue](./image/a1.png) - 이 취약점이 해당하는 버전 목록
+>![vue](./image/a1.png) <br/>- 이 취약점이 해당하는 버전 목록
+
+>### **취약점 분석**
+>> #### 패치분석<br/> 다음 명령어를 통해 언패킹이 가능함.<br/>```> expand -F:* update.msu C:  > cd <br/> > expand -F:* update.cab C: ```
 
 
 
