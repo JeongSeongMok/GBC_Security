@@ -34,10 +34,9 @@
  ```> expand -F:* update.msu C:``` <br> ```> cd ```<br/>``` > expand -F:* update.cab C: ```
  >> - 패치파일이 .msp일 때
  <br/>```> msix patch.msp /out C:```
- >> - 패치파일이 .exe일 때<br/>```pach.exe /x:C:\MS10-005\Extracted``` 
+ >> - 패치파일이 .exe일 때<br/>```> pach.exe /x:C:\MS10-005\Extracted``` 
 
-<img src="./image/a4.png">
-<br/>**BinDiff** 도구를 이용하여 패치 전/후 **termdd.sys**를 비교해 `IcaBindVirtualChannels`와  `IcaRebindVirtualChannels`함수가 변경된 것을 알 수 있다.
+<img src="./image/a4.png"><br/>**BinDiff** 도구를 이용하여 패치 전/후 **termdd.sys**를 비교해 `IcaBindVirtualChannels`와  `IcaRebindVirtualChannels`함수가 변경된 것을 알 수 있다.
 
 <br><img src="./image/a2.png" style="width:400px">
 <br/>패치 전 `IcaBindVirChannelByName`
