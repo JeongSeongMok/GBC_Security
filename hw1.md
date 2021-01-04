@@ -1,5 +1,5 @@
 ## **NAVER의 취약점 목록**
-``https://cve.naver.com``
+`https://cve.naver.com`
 
 ## **CVE-2020-9751** 
 - **Naver Cloud**
