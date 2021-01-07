@@ -41,6 +41,12 @@ input으로 987654를 입력했고, 현재 **ebp-0xc**가 2인 상황에서 **EA
 ><img src="../image/d9.png"><br><img src="../image/d10.png"><br>
 앞선 `crackme0x04`와 같다. 첫번 째 자리부터 현재 index번째의 자리까지 합은 **ebp-8**에 있고 이를 0x10(16)과 비교하며 아닐 시 `check+99`로 가서 반복문을 돌린다.
 
-><img src="../image/d10.png"><br>`crackme0x04`와 같이 각 자리수의 합이 16인 input을 주게 되면 보지 못했던 빨간색 영역이 나타난다. 이제 이곳에서 다시 parell함수를 호출한다.
+><img src="../image/d11.png"><br>`crackme0x04`와 같이 각 자리수의 합이 16인 input을 주게 되면 보지 못했던 빨간색 영역이 나타난다. 이제 이곳에서 다시 `parell`함수를 호출한다.
 
 ><img src="../image/d12.png"><br>
+`parell`내부로 들어온 모습이다.
+
+><img src="../image/d13.png"><br>
+~~자세한 과정은 이해하지 못했다..~~<br>**eax**의 값이 0인지 아닌지 `test`를 통해 **flag**를 설정 하고 `parell+66`으로 갈지 가지 않을지 결정한다. 만약 `parell+66`으로 간다면 실패를 반환한다.
+
+><img src="../image/d14.png"><br>input을 4444로 줬더니 실패일땐 볼 수 없었던 빨간색 영역이 나타나는 것을 볼 수 있다. `parell+66`으로 가지 않는 다면 성공을 반환하는 것이다.
