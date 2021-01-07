@@ -5,7 +5,7 @@ float average(int n1, int n2, int n3, int n4, int n5, int n6, int n7){
     return result;
 
 }
-
+//wow
 int main(){
 
     int a=11, b=22, c=33, d=44, e=55, f=66, g=77;
