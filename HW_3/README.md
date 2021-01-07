@@ -28,7 +28,7 @@ int main(){
 }
 ```
 코드를 실행하면 다음과 같은 결과를 얻는다.
-<img src="../image/c3.png"><br>
+<br><img src="../image/c3.png"><br>
 11로 초기화 해준 변수 **a**는 Stack영역에 할당된다. (이를 선언해준 함수가 종료되면 소멸된다.)
 
 동적할당을 해준 array[0]은 Heap영역에 할당된다.
