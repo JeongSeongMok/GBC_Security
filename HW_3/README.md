@@ -57,45 +57,31 @@ for(int i=0;i<7;i++){
 
 다음과 같은 코드로 속도 측정을 해보았다. 
 ```
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <cstdio>
+#include <chrono>
 
-#define COUNT 1000000
+int main()
+{
+    auto begin = std::chrono::system_clock::now();
+    int a[1000000];
+    for (int i = 0; i < 1000000; ++i){a[i]=i;}
 
-double StackSpeed(){
-    clock_t start,end;
-    start = clock();
-    int a[COUNT];
-    for(int i=0;i<COUNT;i++){
-        a[i]=i;
-    }
-    end = clock();
-    return (double)(end-start);
-}
+    auto end = std::chrono::system_clock::now();
 
-double HeapSpeed(){
-     clock_t start,end;
-     start = clock();
-     int *b= malloc(sizeof(int)*COUNT);
-     for(int i=0;i<COUNT;i++){
-         b[i]=i;
-     }
-     end = clock();
-     return (double)(end-start);
- }
+    std::printf("StackTime: %f seconds\n", std::chrono::duration<double>(end - begin).count());
 
-int main(){
+    begin = std::chrono::system_clock::now();
+    int *b=new int[1000000];
+    for (int i = 0; i < 1000000; ++i){b[i]=i;}
+    delete(b);
+    end = std::chrono::system_clock::now();
 
-    printf("Heap : %f\n",HeapSpeed());
-    printf("Stack: %f\n",StackSpeed());
-
+    std::printf("HeapTime : %f seconds\n", std::chrono::duration<double>(end - begin).count());
     return 0;
 }
 ```
 <br><img src="../image/c6.png"><br>
 
-단위는 ms이기 때문에 별차이는 없지만 Stack이 아주 조금 빠르다는 것을 알 수 있다.
 
 Stack은 이미 생성되어 있는 스택에 대해 포인터의 위치만 바꿔주는 단순연산이고, Heap은 할당된 chuck의 크기, 현재 메모리의 fragmentation상황 등 다양한 요소를 고려하기 때문이다.
 
