@@ -83,6 +83,7 @@ int main()
 <br><img src="../image/c6.png"><br>
 
 
+
 Stack은 이미 생성되어 있는 스택에 대해 포인터의 위치만 바꿔주는 단순연산이고, Heap은 할당된 chuck의 크기, 현재 메모리의 fragmentation상황 등 다양한 요소를 고려하기 때문이다.
 
  
