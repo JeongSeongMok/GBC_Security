@@ -3,7 +3,7 @@
 ## `hello.asm` - Hello, Wolrd 출력
 
 ```
-global    _start // public 개념
+global    _start // public 개념이다.
 section   .text // .text는 main역할을 한다.
     _start:
     mov       rax, 1 // syscall 결정 
