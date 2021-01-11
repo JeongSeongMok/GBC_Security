@@ -1,4 +1,4 @@
-# bomb
+# bombs
 
 ## 1. 문제 설명
 
@@ -20,9 +20,9 @@
 
 > 찾은 `yellow`함수를 보기 위해 명령어 `go `를 입력해서 들어가 보았다.<br><img src="../image/HW_5/e7.png"><br><img src="../image/HW_5/e8.png"><br>`yellow`함수로 들어와 밑으로 내려가며 쭉 확인을 해보았다. 맨 위 `[gc]`함수 내부에 <br>`if(var) goto 0x804977c;[gb]`<Br>를 볼 수 있다. 그 밑 `[gd]`부터 `[gi]`까지에서도 똑같은 조건문을 볼 수 있다.<br>그리고 맨 마지막 조건 `[gk]`를 보면 `if(!var) goto 0x804978b;[gj]`가 있다.<Br>여기서 나는 처음에서 하나씩 비교하며 틀리다면 `[gb]`로 가서 실패를 처리하고 맨 마지막조건 까지 도달 했을 때 조건에 맞다면 `[gj]`로 가서 성공을 처리하는 것을 생각할 수 있었다.
 
-> 다시 처음 `[gc]`로 가서 살펴보았다.<br><img src="../image/HW_5/e9.png"><br>아까 **gdb**로 디버깅 했을 때 찾았던 `yellow_preflight`함수가 보인다. 이 함수에서 암호를 입력받았던 걸 기억해야 한다.<br>명령어 `ga`를 통해 `yellow_preflight`함수 내부로 들어가보았다.<br><img src="../image/HW_5/e10.png"><br>무엇인가를 열심히 쭉쭉 하다가 `fgets`함수를 통해 입력받는 것을 확인할 수 있었다. 
+> 다시 처음 `[gc]`로 가서 살펴보았다.<br><img src="../image/HW_5/e9.png"><br>아까 **gdb**로 디버깅 했을 때 찾았던 `yellow_preflight`함수가 보인다. <br>명령어 `ga`를 통해 `yellow_preflight`함수 내부로 들어가보았다.<br><img src="../image/HW_5/e10.png"><br>무엇인가를 열심히 쭉쭉 하다가 `fgets`함수를 통해  어떤 파일에서 string을 읽는것을 확인할 수 있었다. 
 
-> 명령어 `gb`를 통해 `fgets`함수로 들어가 보았다. <br><img src="../image/HW_5/e11.png"><br>일단 이 함수가 <br>`green_preflight`<br>`blue_preflight`<br>`red_preflight`<br>`yellow_preflight`<br>총 네개의 함수에서 call된다는 것을 볼 수 있었고, `0x804c014`에 저장하는 것을 알 수 있었다.
+> 명령어 `gb`를 통해 `fgets`함수로 들어가 보았다. <br><img src="../image/HW_5/e11.png"><br>일단 이 함수가 <br>`green_preflight`<br>`blue_preflight`<br>`red_preflight`<br>`yellow_preflight`<br>총 네개의 함수에서 call된다는 것을 볼 수 있었고, ~`0x804c014`이 뭔지는 자세히 모르겠다.~
 
 > 다시 나와서 `[gc]`를 살펴보았다. <br><img src="../image/HW_5/e9.png"><br>`obj.buffer`는 내가 입력한 input의 첫 주소와 같다. 그리고 그 값을 `eax`에 저장한다.<br>`al`은 `eax`(32bit)의 하위 8bit(1byte)만을 가리키므로 input의 첫 글자만 따온 것이다.<br>그 후, 그 글자를 `0x38`(8)과 비교하여 다르면 `[gb]`로 가서 실패를 처리하는 것이다.
 
