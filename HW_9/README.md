@@ -25,7 +25,9 @@
 > <img src="../image/HW_9/a5.png"><br>다음과 같이 매우 편리한 방법이 있다. 그러면 계속 반복하다가 어느순간 쉘이 실행되면서 멈추게 되는데 바로 이때이다.<br><img src="../image/HW_9/a6.png"><br>**문제 해결 !**
 </div>
 </details>
-
+<details>
+<summary>bof11 풀이</summary>
+<div markdown="1">
 <img src="../image/HW_9/b1.png">bof11.c 코드
 
 > 일단 `bof10`과 같이 `ASLR`이 **ON**되어있다. 그러나 환경변수 주소를 리턴해주는 코드가 없다. 지금까지 배웠던 방법 중 어떤 방법을 사용하면 될까? 바로 `bof9`에서 썼던 **RTL**이다. 
@@ -71,3 +73,5 @@ p.interactive()
 ```
 
 > `python3`를 이용하여 만든 python파일을 실행 시키면 다음과 같이 나온다.<br><img src="../image/HW_9/b5.png"><br>**성공!!**
+</div>
+</details>
