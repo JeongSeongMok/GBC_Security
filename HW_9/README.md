@@ -32,7 +32,7 @@
 
 > 일단 `bof10`과 같이 `ASLR`이 **ON**되어있다. 그러나 환경변수 주소를 리턴해주는 코드가 없다. 지금까지 배웠던 방법 중 어떤 방법을 사용하면 될까? 바로 `bof9`에서 썼던 **RTL**이다. 
 
-> **RTL**에 대한 자세한 설명은 <a hrep="https://github.com/JeongSeongMok/GBC_Security/tree/master/HW_8">HW_8</a>의 <a hrep="https://github.com/JeongSeongMok/GBC_Security/blob/master/HW_8/README.md">README.md</a>에 있다.<br>`RTL`을 사용하기 위해 구해야 할것은 다음과 같다.
+> **RTL**에 대한 자세한 설명은 [HW_8](https://github.com/JeongSeongMok/GBC_Security/tree/master/HW_8")의 [README.md](https://github.com/JeongSeongMok/GBC_Security/blob/master/HW_8/README.md)에 있다.<br>`RTL`을 사용하기 위해 구해야 할것은 다음과 같다.
 > - `buf`와 `return`주소의 사이 거리 
 > - `"pop rdi ; ret"`의 주소
 > - `/bin/sh`의 주소
@@ -45,7 +45,7 @@
 > 하나씩 차이를 구해보자. *(**gdb**실행 후 `r`을 통해 실행 할 때마다 주소가 바뀌기 때문에 1트안에 모든 것을 구하는 것이 편하다.)*
 >> 1. `printf` <-> `system`<br><img src="../image/HW_9/b2.png"><br>**`system`주소 - `print`주소 = -66672**
 >> 2. `printf` <-> `/bin/sh`<br><img src="../image/HW_9/b3.png"><br>**`/bin/sh`주소 - `print`주소 = 1275223**
->> 3. `printf` <-> `pop rdi ; ret`<br>`vmmap`과 `ROPgadget.py`를 이용하여 `pop rdi ; ret`의 주소를 얻는 방법은 <a hrep="https://github.com/JeongSeongMok/GBC_Security/tree/master/HW_8">HW_8</a>의 <a hrep="https://github.com/JeongSeongMok/GBC_Security/blob/master/HW_8/README.md">README.md</a>에 있다. 구해서 빼준 결과<br>**`pop rdi ; ret`주소 - `print`주소 = -214782**
+>> 3. `printf` <-> `pop rdi ; ret`<br>`vmmap`과 `ROPgadget.py`를 이용하여 `pop rdi ; ret`의 주소를 얻는 방법은 [HW_8](https://github.com/JeongSeongMok/GBC_Security/tree/master/HW_8")의 [README.md](https://github.com/JeongSeongMok/GBC_Security/blob/master/HW_8/README.md)에 있다. 구해서 빼준 결과<br>**`pop rdi ; ret`주소 - `print`주소 = -214782**
 
 > 그러나 또 문제가 있다. `./bof11`로 실행해서 출력값으로 `printf`의 주소 값을 보고나고 실행이 종료되면 다시 `printf`의 주소 값이 바뀌기 때문에 다음 `printf`의 주소값을 예측하는 것은 현실적으로 불가능하다. 그래서 **pwntools**라는 것을 이용한다.
 
